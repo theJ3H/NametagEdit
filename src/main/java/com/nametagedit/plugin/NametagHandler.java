@@ -393,7 +393,7 @@ public class NametagHandler implements Listener {
         INametag tempNametag = getPlayerData(player);
         if (tempNametag == null) {
             for (GroupData group : getGroupData()) {
-                if (player.hasPermission(group.getBukkitPermission())) {
+                if (player.hasPermission(group.getPermission())) {
                     tempNametag = group;
                     break;
                 }

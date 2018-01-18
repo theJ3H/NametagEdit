@@ -42,7 +42,7 @@ public class DatabaseConfig implements AbstractConfig {
         FileConfiguration config = handler.getConfig();
         shutdown();
         hikari = new HikariDataSource();
-        hikari.setMaximumPoolSize(10);
+        hikari.setMaximumPoolSize(1);
         hikari.setPoolName("NametagEdit Pool");
         hikari.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
         hikari.addDataSourceProperty("serverName", config.getString("MySQL.Hostname"));
@@ -73,12 +73,12 @@ public class DatabaseConfig implements AbstractConfig {
 
     @Override
     public void save(PlayerData... playerData) {
-        new PlayerSaver(playerData, hikari).runTaskAsynchronously(plugin);
+//        new PlayerSaver(playerData, hikari).runTaskAsynchronously(plugin);
     }
 
     @Override
     public void save(GroupData... groupData) {
-        new GroupSaver(groupData, hikari).runTaskAsynchronously(plugin);
+//        new GroupSaver(groupData, hikari).runTaskAsynchronously(plugin);
     }
 
     @Override
@@ -101,17 +101,17 @@ public class DatabaseConfig implements AbstractConfig {
 
     @Override
     public void delete(GroupData groupData) {
-        new GroupDeleter(groupData.getGroupName(), hikari).runTaskAsynchronously(plugin);
+//        new GroupDeleter(groupData.getGroupName(), hikari).runTaskAsynchronously(plugin);
     }
 
     @Override
     public void add(GroupData groupData) {
-        new GroupAdd(groupData, hikari).runTaskAsynchronously(plugin);
+//        new GroupAdd(groupData, hikari).runTaskAsynchronously(plugin);
     }
 
     @Override
     public void clear(UUID uuid, String targetName) {
-        new PlayerDeleter(uuid, hikari).runTaskAsynchronously(plugin);
+//        new PlayerDeleter(uuid, hikari).runTaskAsynchronously(plugin);
     }
 
     @Override

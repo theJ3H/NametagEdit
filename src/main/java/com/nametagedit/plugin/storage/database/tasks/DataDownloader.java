@@ -111,6 +111,7 @@ public class DataDownloader extends BukkitRunnable {
                     }
 
                     handler.applyTags();
+                    hikari.close();
                 }
             }.runTask(handler.getPlugin());
         }
